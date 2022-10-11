@@ -1,7 +1,9 @@
 import json
 
+
 class CashRegister:
     def __init__(self):
+        self.myMoney = 0
         self.moneySale = 0
         self.moneyCost = 0
         self.soldSaleSum = 0
@@ -25,6 +27,7 @@ class CashRegister:
 
     def saveEarned(self):
         moneyEarned = {
+            "My Money": self.myMoney,
             "Money Sale": self.moneySale,
             "Money Purchase": self.moneyCost,
             "Sold Sale Sum": self.soldSaleSum,
@@ -38,6 +41,8 @@ class CashRegister:
     def loadEarned(self):
         with open(f"scalesData/money_earned.json", "r") as x:
             earnedData = json.load(x)
+
+            self.moneySale = earnedData["My Money"]
 
             self.moneySale = earnedData["Money Sale"]
 

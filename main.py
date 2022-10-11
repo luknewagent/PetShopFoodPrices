@@ -1,7 +1,8 @@
 from scales import Scales
 from brandeditor import Editor
 from brand_creator import BrandCreator
-from brands_data import brands, showBrands
+from brands_data import brands
+from brands_visualizer import *
 from save_load import *
 from general_functions import printTitle, pausa
 from cash_register import cashRegister
