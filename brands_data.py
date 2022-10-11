@@ -4,7 +4,7 @@ brands = {}
 
 
 def showBrands(brands):
-    printTitle("MUESTRA DE MARCAS")
+    printTitle("VISUALIZADOR DE MARCAS")
 
     for brand in brands.values():
         print(brand)

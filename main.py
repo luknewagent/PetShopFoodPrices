@@ -4,6 +4,7 @@ from brand_creator import BrandCreator
 from brands_data import brands, showBrands
 from save_load import *
 from general_functions import printTitle, pausa
+from cash_register import cashRegister
 
 scales = Scales()
 editor = Editor()
@@ -18,7 +19,7 @@ def main():
         save_data(brands)
 
         printTitle("MENU PRINCIPAL")
-        print("1)Agregar marca\n2)Editor de marca\n3)Ver marcas\n4)Balanza\n5)Mostrar informacion\n6)Salir\n\n")
+        print("1)Agregar marca\n2)Editor de marca\n3)Ver marcas\n4)Balanza\n5)Mostrar informacion\n6)Salir\n")
 
         user_opt = input(">>")
 
@@ -32,13 +33,13 @@ def main():
             scales.calculateMenu(brands)
         elif user_opt == "5":
             while True:
-                printTitle("VISUALIZADOR DE INFORMACION")
-                print("1)Mostrar marcas\n2)Mostrar lo ganado en total")
+                printTitle("VISUALIZADOR DE CAJA")
+                print("1)Mostrar ganancia real\n")
 
                 opt = input(">>")
 
-                if opt == "2":
-                    scales.showEarned()
+                if opt == "1":
+                    cashRegister.showEarned()
                     pausa()
                     break
                 else:

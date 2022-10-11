@@ -1,11 +1,12 @@
 from general_functions import *
 
+
 def printFormattedEditorTitle(editingTitle):
     print(f"{editingTitle} o cero(0) para volver al menu de edicion")
 
 
 class Editor():
-    def editorMainMenu(self, brands: dict) -> None:
+    def editorMainMenu(self, brands: dict):
         printTitle("EDITOR DE MARCA\n")
 
         print("Ingresar una marca para editar (o ingresar 0 para volver al menu principal)")
@@ -20,7 +21,7 @@ class Editor():
             else:
                 self.brandEditorMenu(brand)
 
-    def brandEditorMenu(self, brand: object) -> None:
+    def brandEditorMenu(self, brand: object):
         while True:
             # printTitle("EDITOR DE MARCA\n")
             print(f"Que queres editarle a {brand.name}?\n\t1)Precio de venta\n\t2)Precio de costo\n\t3)kgs")
@@ -37,17 +38,19 @@ class Editor():
                 else:
                     continue
             elif editopt == 2:
-                printFormattedEditorTitle("Ingresa el nuevo precio de compra")
+                printFormattedEditorTitle("Ingresa el nuevo precio de costo")
 
-                newPurchasePrice = self.getNewPurchasePrice()
+                newCostPrice = self.getNewCostPrice()
                 confirm_opt = confirmOption()
+
                 if confirmed(confirm_opt):
-                    brand.salePrice = newPurchasePrice
+                    brand.salePrice = newCostPrice
                 else:
                     continue
             elif editopt == 3:
-                print("Ingresa el nuevo pesaje")
+                print("Ingresa el nuevo peso en kgs")
                 newKgs = self.getNewKgs()
+
                 if newKgs == 0:
                     break
                 confirm_opt = confirmOption()
@@ -58,7 +61,7 @@ class Editor():
             else:
                 break
 
-    def getNewSalePrice(self) -> int:
+    def getNewSalePrice(self):
         while True:
             try:
                 newPrice = int(input(">>"))
@@ -67,7 +70,7 @@ class Editor():
             else:
                 return newPrice
 
-    def getNewPurchasePrice(self) -> int:
+    def getNewCostPrice(self):
         while True:
             try:
                 newPrice = int(input(">>"))

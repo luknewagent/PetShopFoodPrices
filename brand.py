@@ -6,38 +6,32 @@ class Brand:
         self.kg = kg
         self.offer = offer
 
-    def get_KG_price(self, priceMode):
-        price_mode = self.setPriceMode(priceMode)
-        return price_mode / self.kg
+    def get_KG_price(self, priceType):
+        price_type = self.setPriceMode(priceType)
+        return price_type / self.kg
 
-    def get_HALFKG_price(self, priceMode):
-        return self.get_KG_price(priceMode) / 2
-
-    def get_QUARTERKG_price(self, priceMode):
-        return self.get_HALFKG_price(priceMode) / 2
-
-    def setPriceMode(self, priceMode):
-        if priceMode == "purchasePrice":
-            return self.price
-        elif priceMode == "salePrice":
-            return self.salePrice
-
-    def get_ANYKG_price(self, grams: float, priceMode="salePrice") -> float:
+    def get_ANYKG_price(self, grams: float, priceType="salePrice") -> float:
         """This function calculates and return the sale price of given grams
 
         Args:
             grams (float): grams
-
+            priceType (string): price type = salePrice or costPrice
         Returns:
             float: sale price
         """
-        price_mode = self.setPriceMode(priceMode)
+        price_mode = self.setPriceType(priceType)
         # discount is ???
             #INCOMPLETE.
         if self.offer == True and grams >= 10000:
             return price_mode / (self.kg / (grams / 1000))
         else:
             return price_mode / (self.kg / (grams / 1000))
+
+    def setPriceType(self, priceType):
+        if priceType == "costPrice":
+            return self.price
+        elif priceType == "salePrice":
+            return self.salePrice
 
     def __str__(self):
         if self.offer == True:
