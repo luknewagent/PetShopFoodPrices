@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Dog Chow",
+        "price": 6000,
+        "salePrice": 8500,
+        "kg": 10,
+        "offer": false
+    }
+]
