@@ -9,7 +9,6 @@ from cash_register import cashRegister
 
 scales = Scales()
 editor = Editor()
-brandAdder = BrandAdder()
 
 # Load brands data
 load_brands(brands)
