@@ -1,13 +1,13 @@
 class Brand:
-    def __init__(self, name, price, salePrice, kg, offer=False):
+    def __init__(self, name, costPrice, salePrice, kg, offer=False):
         self.name = name
-        self.price = price
+        self.costPrice = costPrice
         self.salePrice = salePrice
         self.kg = kg
         self.offer = offer
 
-    def get_KG_price(self, priceType):
-        price_type = self.setPriceMode(priceType)
+    def get_KG_price(self, priceType: int) -> float:
+        price_type: int = self.setPriceMode(priceType)
         return price_type / self.kg
 
     def get_ANYKG_price(self, grams: float, priceType="salePrice") -> float:
@@ -19,7 +19,7 @@ class Brand:
         Returns:
             float: sale price
         """
-        price_mode = self.setPriceType(priceType)
+        price_mode: int = self.setPriceType(priceType)
         # discount is ???
             #INCOMPLETE.
         if self.offer == True and grams >= 10000:
@@ -27,7 +27,7 @@ class Brand:
         else:
             return price_mode / (self.kg / (grams / 1000))
 
-    def setPriceType(self, priceType):
+    def setPriceType(self, priceType: str) -> int:
         if priceType == "costPrice":
             return self.price
         elif priceType == "salePrice":
