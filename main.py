@@ -1,6 +1,6 @@
 from scales import Scales
 from brand_editor import Editor
-from brand_adder import BrandAdder
+from add_brand import addBrand
 from brands_data import brands
 from brands_visualizer import *
 from save_load import *
@@ -14,7 +14,7 @@ brandAdder = BrandAdder()
 # Load brands data
 load_brands(brands)
 
-# Main loop
+
 def main():
     while True:
         save_data(brands)
@@ -25,7 +25,7 @@ def main():
         user_opt = input(">>")
 
         if user_opt == "1":
-            brandAdder.addBrand(brands)
+            addBrand(brands)
         elif user_opt == "2":
             editor.editorMainMenu(brands)
         elif user_opt == "3":
